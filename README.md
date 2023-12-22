@@ -1,5 +1,6 @@
 <h1 align="center">Hi there 👋, This is Dhakshin A V</h1>
 <h2 align="center">A passionate Fullstack developer || Student || 📍Tamil Nadu, India</h2>
+<p align="right"> <img src="https://komarev.com/ghpvc/?username=dhaks13" alt="dhaks13" /> </p>
 <h3 align="left">About me:</h3>
   
 - 🏫 I’m currently pursuing a B.Tech degree in **Information Technology** at **SASTRA UNIVERSITY**
@@ -22,14 +23,10 @@
   <a href="https://www.w3schools.com/cpp/cpp_intro.asp" target="_blank" rel="noreferrer"> <img src="https://isocpp.org/assets/images/cpp_logo.png" alt="c" width="40" height="40"/> </a>
   <a href=https://docs.oracle.com/javase/tutorial/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-original.svg" alt="c" width="40" height="40"/> </a>
   <a href="https://www.mongodb.com/docs/manual/tutorial/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mongodb/mongodb-original.svg" alt="c" width="40" height="40"/> </a>
-
-   <br>
-<hr>
-<p align="left"> <a href="https://github.com/ryo-ma/github-profile-trophy"><img src="https://github-profile-trophy.vercel.app/?username=dhaks13" alt="dhaks13" /></a> </p>
-
-<p align="right"> <img src="https://komarev.com/ghpvc/?username=dhaks13" alt="dhaks13" /> </p>
-
 <br>
+<hr>
+<br>
+<p align="left"> <a href="https://github.com/ryo-ma/github-profile-trophy"><img src="https://github-profile-trophy.vercel.app/?username=dhaks13" alt="dhaks13" /></a> </p>
 <p><img align="center" src="https://github-readme-stats.vercel.app/api/top-langs?username=dhaks13&show_icons=true&locale=en&layout=compact" alt="dhaks13" /></p>
 
 <p>&nbsp;<img align="center" src="https://github-readme-stats.vercel.app/api?username=dhaks13&show_icons=true&locale=en&count_private=true&include_all_commits=true" alt="dhaks13" /></p>
