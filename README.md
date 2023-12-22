@@ -28,3 +28,10 @@
 <p align="left"> <a href="https://github.com/ryo-ma/github-profile-trophy"><img src="https://github-profile-trophy.vercel.app/?username=dhaks13" alt="dhaks13" /></a> </p>
 
 <p align="right"> <img src="https://komarev.com/ghpvc/?username=dhaks13" alt="dhaks13" /> </p>
+
+<br>
+<p><img align="center" src="https://github-readme-stats.vercel.app/api/top-langs?username=dhaks13&show_icons=true&locale=en&layout=compact" alt="dhaks13" /></p>
+
+<p>&nbsp;<img align="center" src="https://github-readme-stats.vercel.app/api?username=dhaks13&show_icons=true&locale=en&count_private=true&include_all_commits=true" alt="dhaks13" /></p>
+
+<p><img align="center" src="https://github-readme-streak-stats.herokuapp.com/?user=dhaks13&" alt="dhaks13" /></p>
