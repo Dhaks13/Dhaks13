@@ -28,5 +28,5 @@
 <h3>GitHub Stats</h3>
 <p><img src="https://myreadme.vercel.app/api/embed/Dhaks13?panels=userstatistics,toplanguages,commitgraph,toprepositories" alt="dhaks13" /></p>
 <p> <img src="https://github-profile-trophy.vercel.app/?username=dhaks13" alt="dhaks13" /></p>
-<p><img align="center" src="https://github-readme-stats.vercel.app/api/top-langs?username=dhaks13&show_icons=true&locale=en&layout=compact" alt="dhaks13" /></p>
-<p ><img src="https://github-readme-streak-stats.herokuapp.com/?user=dhaks13&" alt="dhaks13" /></p>
+<p><img src="https://github-readme-stats.vercel.app/api/top-langs?username=dhaks13&show_icons=true&locale=en&layout=compact" alt="dhaks13" />
+<img src="https://github-readme-streak-stats.herokuapp.com/?user=dhaks13&" alt="dhaks13" /></p>
