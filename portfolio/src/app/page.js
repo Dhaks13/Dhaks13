@@ -1,102 +1,144 @@
+'use client'
+
+import { useEffect } from 'react';
+import "./globals.css";
 import Image from "next/image";
+import logo from "./D.gif";
+import styles from "./page.module.css";
+import heroImage from "./hero-image.jpg";
+import Script from "next/script";
+import {ReactTyped} from "react-typed"
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.js
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <div className={styles.page}>
+      <div className={`${styles.navbar} ${styles.hidden}` }>
+        <Script>  
+          {
+            useEffect(() => {
+            const navbar = document.querySelector(`.${styles.navbar}`);
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+            const handleScroll = () => {
+              if (window.scrollY > 0) {
+                navbar?.classList.remove(styles.hidden);
+              } else {
+                navbar?.classList.add(styles.hidden);
+              }
+            };
+            window.scrollTo({ top: 0, behavior: "auto" });
+            window.addEventListener("scroll", handleScroll);
+            handleScroll();
+            return () => {
+              window.removeEventListener("scroll", handleScroll);
+            };
+          }, [])
+          }
+        </Script>
+        <div className={styles.logo}>
+          <Image
+            src={logo}
+            alt="Logo"
+            width={50}
+            height={55}
+          />
+          <span className={styles.title}>Portfolio</span>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+        <nav className={styles.navLinks}>
+          <a href="#home" className={styles.active}>Home</a>
+          <a href="#about">About</a>
+          <a href="#projects">Projects</a>
+          <a href="#skills">Skills</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </div>
+      <div id="home" className={styles.home}>
+        <div className={styles.heroContent}>
+          <h1 className={styles.title}>DHAKSHIN A V</h1>
+           <span className={styles.subtitle}>
+              <ReactTyped
+                strings={[
+                  "Full Stack Developer",
+                  "ML/DL Enthusiast",
+                  "Data Analyst",
+                  "UI/UX Designer",
+                  "Software Engineer",
+                  "Prompt Engineer"
+                ]}
+                typeSpeed={80}
+                backSpeed={40}
+                loop
+              />
+            </span>
+          <p className={styles.description}>
+            This portfolio showcases my skills and projects in web development. 
+            I specialize in creating responsive and user-friendly web applications.
+          </p>
+          <div className={styles.buttons}>
+            <button className={styles.Button1}>
+              Get in Touch
+            <span className={styles.arrow}>→</span>
+            </button>
+            <button className={styles.Button2}>
+              View Projects
+            <span className={styles.arrow}>→</span>
+            </button>
+          </div>
+        </div>
+        <div className={styles.heroImageContainer}>
           <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+          src={heroImage}
+          alt="Hero Image"
+          className={styles.heroImage}
+          loading="eager"
+          />  
+        </div>
+      </div>
+      <div id="about" className={styles.about}>
+        <h2>About Me</h2>
+        <p>
+          I am a web developer with a passion for creating dynamic and responsive web applications.
+          My expertise includes HTML, CSS, JavaScript, and various frameworks.
+        </p>
+      </div>
+      <div id="projects" className={styles.projects}>
+        <h2>Projects</h2>
+        <div className={styles.projectList}>
+          <div className={styles.projectItem}>
+            <h3>Project 1</h3>
+            <p>Description of project 1.</p>
+          </div>
+          <div className={styles.projectItem}>
+            <h3>Project 2</h3>
+            <p>Description of project 2.</p>
+          </div>
+          <div className={styles.projectItem}>
+            <h3>Project 3</h3>
+            <p>Description of project 3.</p>
+          </div>
+        </div>
+      </div>
+        <div id="skills" className={styles.skills}>
+          <h2>Skills</h2>
+          <ul>
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>JavaScript</li>
+            <li>React</li>
+            <li>Next.js</li>
+          </ul>
+        </div>
+        <div id="contact" className={styles.contact}>
+          <h2>Contact</h2>
+          <p>If you would like to get in touch, please email me at <a href="mailto:"></a></p>
+          <p>Follow me on social media:</p>
+          <ul className={styles.socialLinks}>
+            <li><a href="https://github.com" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+            <li><a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+            <li><a href="https://twitter.com" target="_blank" rel="noopener noreferrer">Twitter</a></li>
+          </ul>
+        </div>
+      <footer className={styles.footer}>
+        <p>&copy; {new Date().getFullYear()} Dhakshin A V. All rights reserved.</p>
       </footer>
     </div>
   );

@@ -1,0 +1,211 @@
+
+
+.page {
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  min-height: 100svh;
+  gap: 8px;
+  font-family: var(--font-geist-sans);
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 16px;
+  width: 100vw;
+  z-index: 1000;
+  top: 0;
+  position: fixed;
+  background: rgba(255, 255, 255, 0.95);
+}
+.navLinks{
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  padding: 8px;
+  margin-right: 16px;
+
+  a{
+  color: var(--button-primary); 
+  font-size: 20px;
+  font-weight: 500;
+  text-decoration: none;
+  }
+  a:hover {
+    color: var(--button-primary-hover);
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+  .active {
+    border: 2px solid var(--button-primary);
+    border-radius: 8px;
+    padding: 4px 8px;
+    color: var(--text-4);
+    text-decoration: underline;
+    text-underline-offset: 4px
+  }
+}
+
+.hidden {
+transform: translateY(-100%);
+}
+
+.home{
+  display: flex;
+  flex-direction:row;
+  gap: 16px;
+  text-align: center; 
+  justify-content:space-around;
+  align-self: center;
+  width: 100%;
+  height: 100vh;
+  padding: 8px;
+  background: url(./Dhakshin\ A\ V.jpg) no-repeat center center;
+  background-size: cover;
+  -webkit-backdrop-filter: blur(50px);
+  backdrop-filter: blur(50px);
+  background-blend-mode: hue;
+}
+
+.heroContent {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items:self-start;
+  gap: 16px;
+
+
+  .title{
+    font-size: 72px;
+    font-weight: 700;
+    /* Fallback for color-mix for better browser support */
+    color: var(--text-1);
+    /* color:color-mix(in hue,var(--text-1) 80%, var(--text-4) 20%); */
+    stroke: var(--text-4) 16px;
+    stroke-width: 8px;
+    text-shadow: 2px 2px 4px var(--text-3);
+  }
+  .subtitle {
+    font-size: 36px;
+    font-weight: 400;
+    color: var(--text-2);
+  }
+  .description {
+    font-size: 24px;
+    font-weight: 400;
+    color: var(--text-3);
+    max-width: 600px;
+  }
+
+  .buttons{
+    display: flex;
+    gap: 16px;
+    margin-top: 16px;
+  
+    button {
+      display: inline-block;
+      padding: 12px 24px;
+      font-size: 16px;
+      font-weight: 500;
+      border-radius: 8px;
+      border: 2px solid var(--button-border);
+      text-decoration: none;
+      transition: 0.3s, border-color 0.3s;
+    }
+    .Button1{
+      background: var(--button-primary);
+      color: var(--button-text);
+    }
+    .Button2{
+      background: rgba(0, 0, 0, 0.1);
+      color: var(--button-text);
+
+    }
+    button:hover {
+      background: var(--button-primary-hover);
+      border-color: transparent;
+    }
+  }
+}
+
+.heroImageContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 75%;
+  max-width: 600px;
+
+  .heroImage {
+    border-radius: 50%;
+    width: 75%;
+    aspect-ratio: 1 / 1;
+    height: auto;
+    object-fit: cover;
+    border: 10px solid var(--button-border);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
+    z-index: 1;
+    animation-name: float;
+    animation-duration: 6s;
+    animation-iteration-count: infinite;
+    animation-direction:normal;  
+    transition: all 0.3s ease-in-out;
+    -webkit-filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.05));
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.25));
+  }
+
+  img:hover {
+    transform: scale(1.05);
+    border: 6px solid var(--button-border);
+  }
+}
+
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 14px;
+}
+
+@media (prefers-color-scheme: dark) {
+
+}
+
+/* Enable hover only on non-touch devices */
+@media (hover: hover) and (pointer: fine) {
+  a.primary:hover {
+    background: var(--button-primary-hover);
+    border-color: transparent;
+  }
+
+  a.secondary:hover {
+    background: var(--button-secondary-hover);
+    border-color: transparent;
+  }
+
+  .footer a:hover {
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+}
+
+@media (max-width: 500px) {
+
+}
+
+
+@keyframes float {
+  0% {
+    transform: translateY(-15px);
+  }
+  50% {
+    transform: translateY(10px);
+  }
+  100% {
+    transform: translateY(-15px);
+  }
+}
