@@ -11,6 +11,7 @@
   --text-2: #272727;
   --text-3: #000000;
   --text-4: #58fc89;
+  --text-5: #FFFADC;
 }
 
 @media (prefers-color-scheme: dark) {

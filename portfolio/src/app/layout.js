@@ -27,6 +27,7 @@ export default function RootLayout({ children }) {
         <link rel="icon" href="/favicon.ico" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com"/>
+        <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.15.4/css/all.css" />
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         {children}

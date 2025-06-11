@@ -13,6 +13,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  justify-items: center;
   gap: 8px;
   padding: 16px;
   width: 100vw;
@@ -20,6 +21,20 @@
   top: 0;
   position: fixed;
   background: rgba(255, 255, 255, 0.95);
+
+  .title{
+    align-items: center;
+    justify-content: center;
+    padding: 36px;
+    font-size: 50px;
+    font-weight: 500;
+    /* Fallback for color-mix for better browser support */
+    color: var(--text-4);
+    /* color:color-mix(in hue,var(--text-1) 80%, var(--text-4) 20%); */
+    stroke: var(--text-3) 16px;
+    stroke-width: 8px;
+    text-shadow: 2px 2px 4px var(--text-2);
+  }
 }
 .navLinks{
   display: flex;
@@ -84,19 +99,25 @@ transform: translateY(-100%);
     /* Fallback for color-mix for better browser support */
     color: var(--text-1);
     /* color:color-mix(in hue,var(--text-1) 80%, var(--text-4) 20%); */
-    stroke: var(--text-4) 16px;
+    stroke: var(--text-3) 16px;
     stroke-width: 8px;
     text-shadow: 2px 2px 4px var(--text-3);
   }
   .subtitle {
     font-size: 36px;
-    font-weight: 400;
-    color: var(--text-2);
+    font-weight: 550;
+    color: var(--text-5);
+    stroke: var(--text-4) 16px;
+    stroke-width: 8px;
+    text-shadow: 2px 2px 4px var(--text-4);
+
   }
   .description {
     font-size: 24px;
-    font-weight: 400;
+    font-weight: 450;
     color: var(--text-3);
+    stroke: var(--text-1) 16px;
+    stroke-width: 8px;
     max-width: 600px;
   }
 
@@ -105,28 +126,58 @@ transform: translateY(-100%);
     gap: 16px;
     margin-top: 16px;
   
-    button {
+    a {
       display: inline-block;
       padding: 12px 24px;
-      font-size: 16px;
+      font-size: 24px;
       font-weight: 500;
       border-radius: 8px;
       border: 2px solid var(--button-border);
       text-decoration: none;
       transition: 0.3s, border-color 0.3s;
+      justify-content: space-between;
+      cursor: pointer;
+
+      .arrow{
+        display: none;
+      }
     }
     .Button1{
       background: var(--button-primary);
-      color: var(--button-text);
+      color: var(--text-1);
     }
     .Button2{
       background: rgba(0, 0, 0, 0.1);
-      color: var(--button-text);
+      color: var(--text-1);
 
     }
-    button:hover {
+    a:hover {
       background: var(--button-primary-hover);
       border-color: transparent;
+      .arrow{
+        display: inline;  
+      }
+
+    }
+  }
+
+  .socialLinks{
+    display: flex;
+    gap: 16px;
+    margin-top: 16px;
+
+    a {
+      color: var(--text-1);
+      font-size: 28px;
+      font-weight: 500;
+      text-decoration: none;
+      transition: color 0.3s ease-in-out;
+    }
+    a:hover {
+      color: var(--text-4);
+      animation-name: shake;
+      animation-duration: .5s;
+      animation-iteration-count: infinite;
     }
   }
 }
@@ -164,11 +215,15 @@ transform: translateY(-100%);
 
 
 .footer {
+  padding: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
-  font-size: 14px;
+  font-size: 16px;
+  background: var(--text-3);
+  color: var(--text-1);
+  width: 100vw;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -200,6 +255,7 @@ transform: translateY(-100%);
 
 @keyframes float {
   0% {
+
     transform: translateY(-15px);
   }
   50% {
@@ -209,3 +265,11 @@ transform: translateY(-100%);
     transform: translateY(-15px);
   }
 }
+
+@keyframes shake {
+  0% { transform: rotate(0deg); transform: scale(1.0); }
+  25% { transform: rotate(10deg); }
+  50% { transform: rotate(0deg); transform: scale(1.1);}
+  75% { transform: rotate(-10deg); }
+  100% { transform: rotate(0deg); transform: scale(1.0); }
+}  

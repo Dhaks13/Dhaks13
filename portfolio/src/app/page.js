@@ -33,14 +33,15 @@ export default function Home() {
             };
           }, [])
           }
+          
         </Script>
         <div className={styles.logo}>
-          <Image
+          {/* <Image
             src={logo}
             alt="Logo"
             width={50}
             height={55}
-          />
+          /> */}
           <span className={styles.title}>Portfolio</span>
         </div>
         <nav className={styles.navLinks}>
@@ -70,18 +71,28 @@ export default function Home() {
               />
             </span>
           <p className={styles.description}>
-            This portfolio showcases my skills and projects in web development. 
-            I specialize in creating responsive and user-friendly web applications.
+            I build scalable full-stack web and AI-powered solutions that tackle real-world problems through clean code, efficient systems, and thoughtful design.
           </p>
           <div className={styles.buttons}>
-            <button className={styles.Button1}>
+            <a className={styles.Button1} href='#contact'>
               Get in Touch
-            <span className={styles.arrow}>→</span>
-            </button>
-            <button className={styles.Button2}>
+            <span className={styles.arrow}> {'>>'}</span>
+            </a>
+            <a className={styles.Button2} href='#projects'>
               View Projects
-            <span className={styles.arrow}>→</span>
-            </button>
+            <span className={styles.arrow}> {'>>'} </span>
+            </a>
+          </div>
+          <div className={styles.socialLinks}>
+            <a href="https://www.linkedin.com/in/dhaks13/" target="_blank" rel="noopener noreferrer">
+              <i className="fab fa-linkedin"></i>
+            </a>
+            <a href="https://github.com/Dhaks13" target="_blank" rel="noopener noreferrer">
+              <i className="fab fa-github"></i>
+            </a>
+            <a href='#contact' target="_blank" rel="noopener noreferrer">
+              <i className="fas fa-envelope"></i>
+            </a>
           </div>
         </div>
         <div className={styles.heroImageContainer}>
@@ -96,8 +107,11 @@ export default function Home() {
       <div id="about" className={styles.about}>
         <h2>About Me</h2>
         <p>
-          I am a web developer with a passion for creating dynamic and responsive web applications.
-          My expertise includes HTML, CSS, JavaScript, and various frameworks.
+          I’m Dhakshin A V, a final-year Information Technology student 
+          with a strong foundation in full-stack web development 
+          and a growing passion for AI/ML and cybersecurity. From building
+           intuitive web interfaces to experimenting with machine learning models
+           projects, I enjoy turning ideas into practical tech solutions.
         </p>
       </div>
       <div id="projects" className={styles.projects}>
