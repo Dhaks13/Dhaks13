@@ -3,7 +3,7 @@
 import { useEffect } from 'react';
 import "./globals.css";
 import Image from "next/image";
-import logo from "./D.gif";
+import Me from "./logo.jpg";
 import styles from "./page.module.css";
 import heroImage from "./hero-image.jpg";
 import Script from "next/script";
@@ -21,7 +21,7 @@ export default function Home() {
       }
     };
 
-    window.scrollTo({ top: 0, behavior: "auto" });
+    // window.scrollTo({ top: 0, behavior: "auto" });
     window.addEventListener("scroll", handleScroll);
     handleScroll();
 
@@ -141,7 +141,7 @@ export default function Home() {
       <div id="about" className={styles.about}>
         <div className={styles.aboutImageContainer}>
         <Image
-          src={logo}
+          src={Me}
           alt="Logo"
           className={styles.logoImage}
         />
@@ -166,39 +166,248 @@ export default function Home() {
             </span>
         </p>
         <p>
-        A final-year Information Technology student with a strong foundation in full-stack web development
-        and a growing passion for AI/ML and cybersecurity. From building intuitive web interfaces to experimenting
-        with machine learning models and drone security systems, I enjoy turning ideas into practical tech solutions.
-      </p>
-
-      <p>
-        My journey has taken me through internships, hackathons, and academic projects where I’ve explored areas like
-        WSN intrusion detection and PDF-based chatbot training. I'm always eager to take on challenges that blend
-        research with real-world impact and hands-on development.
-      </p>
-
-      <p>
-        When I’m not coding, I usually play games, binge-watch sci-fi or thriller series, or catch up on the latest
-        cricket match. I’m also a big fan of music especially melody songs  and I never miss a chance to unwind with
-        a good movie or spend quality time with family and friends.
-      </p>
-
+          A final-year Information Technology student with a strong foundation in Full Stack Development 
+          with a strong foundation in AI/ML and web development. 
+          My technical toolkit includes Python, Django, Angular, React and JavaScript, 
+          backed by solid knowledge of data structures and algorithms.
+          From building intuitive web interfaces to experimenting
+          with machine learning models, I enjoy turning ideas into practical tech solutions.
+        </p>
+        <p>
+          My journey has taken me through internships, hackathons, and academic projects. I'm always eager to take on challenges that blend
+          research with real-world impact and hands-on development.
+        </p>
+        <div className={styles.socialLinks}>
+          <a href="https://www.linkedin.com/in/dhaks13/" target="_blank" rel="noopener noreferrer">
+            <i className="fab fa-linkedin"></i> LinkedIn
+          </a>
+          <a href="https://github.com/Dhaks13" target="_blank" rel="noopener noreferrer">
+            <i className="fab fa-github"></i> GitHub
+          </a>
+          <a href='#contact' target="_blank" rel="noopener noreferrer">
+            <i className="fas fa-envelope"></i> Email
+          </a>
         </div>
+      </div>
       </div>
       <div id="projects" className={styles.projects}>
         <h2>Projects</h2>
+        <div className={styles.projectTags}>
+          <span className={`${styles.tag} ${styles.active}`}>All</span>
+          <span className={styles.tag}>Full Stack Web Development</span>
+          <span className={styles.tag}>AI/ML</span>
+        </div>
         <div className={styles.projectList}>
+          {/* Sastra Law Bot */}
           <div className={styles.projectItem}>
-            <h3>Project 1</h3>
-            <p>Description of project 1.</p>
+            <h3>Sastra Law Bot</h3>
+            <p>
+              An AI-driven chatbot built with Python and NLP techniques to assist 
+              students in navigating campus regulations and legal queries, featuring  
+              intent classification and context-aware responses.
+            </p>
+            <div className={styles.projectTags}>
+              <span>#Python</span> <span>#Chatbot</span> <span>#LLM</span>
+              <span>#RAG</span> <span>#Django</span> <span>#Angular</span>
+
+            </div>
+            <a
+              href="https://github.com/Dhaks13/sastra-law-bot/"
+              className={styles.projectLink}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <i className="fab fa-github"></i> View on GitHub
+            </a>
           </div>
+
+          {/* SALVO Website */}
           <div className={styles.projectItem}>
-            <h3>Project 2</h3>
-            <p>Description of project 2.</p>
+            <h3>SALVO Website</h3>
+            <p>
+              A responsive, multi-page website built to showcase the SALVO initiative, 
+              featuring a clean UI, smooth scroll animations, and mobile-first design 
+              principles to engage visitors and communicate project goals.
+            </p>
+            <div className={styles.projectTags}>
+              <span>#HTML</span> <span>#CSS</span> <span>#JavaScript</span> <span>#ResponsiveDesign</span>
+            </div>
+            <a
+              href="https://github.com/Dhaks13/SALVO-Website"
+              className={styles.projectLink}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <i className="fab fa-github"></i> View on GitHub
+            </a>
           </div>
+
+          {/* STL File Slicing */}
           <div className={styles.projectItem}>
-            <h3>Project 3</h3>
-            <p>Description of project 3.</p>
+            <h3>STL File Slicing</h3>
+            <p>
+              A Python CLI tool that parses and slices 3D STL models into printable 
+              segments, allowing customization of layer height and slice orientation 
+              for optimized 3D printing workflows.
+            </p>
+            <div className={styles.projectTags}>
+              <span>#Python</span> <span>#3DPrinting</span> <span>#STL</span>
+            </div>
+            <a
+              href="https://github.com/Dhaks13/STL_File_Slicing"
+              className={styles.projectLink}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <i className="fab fa-github"></i> View on GitHub
+            </a>
+          </div>
+
+          {/* IDS for UAV */}
+          <div className={styles.projectItem}>
+            <h3>IDS for UAV</h3>
+            <p>
+              An intrusion detection system for drones combining wireless sensor  
+              networks and machine learning classifiers to detect GPS spoofing and  
+              denial-of-service attacks in real time.
+            </p>
+            <div className={styles.projectTags}>
+              <span>#Python</span> <span>#MachineLearning</span> <span>#XAI</span>
+            </div>
+            <a
+              href="https://github.com/Dhaks13/IDS_for_UAV"
+              className={styles.projectLink}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <i className="fab fa-github"></i> View on GitHub
+            </a>
+          </div>
+
+          {/* BayMax */}
+          <div className={styles.projectItem}>
+            <h3>BayMax</h3>
+            <p>
+              A medical assistance chatbot developed during a hackathon using Django  
+              and Rasa, capable of answering health-related queries and providing  
+              symptom-based suggestions with explainable AI components.
+            </p>
+            <div className={styles.projectTags}>
+              <span>#Python</span> <span>#Django</span> <span>#Chatbot</span> <span>#LLM</span>
+            </div>
+            <a
+              href="https://github.com/UnAuthDevX/BayMax-"
+              className={styles.projectLink}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <i className="fab fa-github"></i> View on GitHub
+            </a>
+          </div>
+
+          {/* Plant Disease Classification */}
+          <div className={styles.projectItem}>
+            <h3>Plant Disease Classification</h3>
+            <p>
+              A deep learning pipeline using TensorFlow to classify plant leaf images  
+              into healthy or various disease categories, featuring data augmentation  
+              and transfer learning for high accuracy.
+            </p>
+            <div className={styles.projectTags}>
+              <span>#Python</span> <span>#TensorFlow</span> <span>#DeepLearning</span>
+            </div>
+            <a
+              href="https://github.com/UnAuthDevX/Plant-Disease-Classification"
+              className={styles.projectLink}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <i className="fab fa-github"></i> View on GitHub
+            </a>
+          </div>
+
+          {/* Tic-Tac-Toe Web App */}
+          <div className={styles.projectItem}>
+            <h3>Tic-Tac-Toe Web App</h3>
+            <p>
+              A browser-based Tic-Tac-Toe game built with vanilla JavaScript, HTML,  
+              and CSS, featuring two-player mode, win/draw detection, and a reset  
+              functionality.
+            </p>
+            <div className={styles.projectTags}>
+              <span>#JavaScript</span> <span>#HTML</span> <span>#CSS</span>
+            </div>
+            <a
+              href="https://github.com/Dhaks13/PRODIGY_WD_03(Tic-Tac-Toe Web Application)"
+              className={styles.projectLink}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <i className="fab fa-github"></i> View on GitHub
+            </a>
+          </div>
+
+          {/* Weather App */}
+          <div className={styles.projectItem}>
+            <h3>Weather App</h3>
+            <p>
+              A dynamic web application that fetches real-time weather data from an  
+              external API, displays current conditions and 5-day forecasts, and  
+              allows city-based searches.
+            </p>
+            <div className={styles.projectTags}>
+              <span>#JavaScript</span> <span>#API</span> <span>#ResponsiveDesign</span>
+            </div>
+            <a
+              href="https://github.com/Dhaks13/PRODIGY_WD_05(Weather App)"
+              className={styles.projectLink}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <i className="fab fa-github"></i> View on GitHub
+            </a>
+          </div>
+
+          {/* Frontend Movie App */}
+          <div className={styles.projectItem}>
+            <h3>Frontend Movie App</h3>
+            <p>
+              A React-based single-page application that integrates with the TMDB API  
+              to browse, search, and filter movies, complete with dynamic routing and  
+              responsive layout.
+            </p>
+            <div className={styles.projectTags}>
+              <span>#React</span> <span>#JavaScript</span> <span>#API</span>
+            </div>
+            <a
+              href="https://github.com/Dhaks13/Frontend-Movie-App-freeCodeCamp.org"
+              className={styles.projectLink}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <i className="fab fa-github"></i> View on GitHub
+            </a>
+          </div>
+
+          {/* JavaScript RPG */}
+          <div className={styles.projectItem}>
+            <h3>JavaScript RPG</h3>
+            <p>
+              A tutorial-driven role-playing game built with plain JavaScript and  
+              HTML5 Canvas, featuring character movement, combat mechanics, and  
+              map exploration inspired by classic RPGs.
+            </p>
+            <div className={styles.projectTags}>
+              <span>#JavaScript</span> <span>#GameDev</span> <span>#Canvas</span>
+            </div>
+            <a
+              href="https://github.com/Dhaks13/JavaScript-RPG-BeauCarnes-freeCodeCamp.org"
+              className={styles.projectLink}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <i className="fab fa-github"></i> View on GitHub
+            </a>
           </div>
         </div>
       </div>

@@ -1,5 +1,6 @@
 :root{    
-  --background: #ededed;
+  --background: #ededed80;
+  --background-2: #ffffff;
   --foreground: #0a0a0a;
   --button-primary: #09f76c;
   --button-primary-hover: #58fc89;
@@ -12,6 +13,14 @@
   --text-3: #000000;
   --text-4: #58fc89;
   --text-5: #FFFADC;
+
+  scrollbar-color: var(--text-4) var(--background-2);
+  scrollbar-width: thin;
+  scrollbar-gutter: stable;
+  scrollbar-track-color: var(--background-2);
+  scrollbar-thumb-color: var(--text-4);
+  scrollbar-thumb-border-radius: 10px;
+  scrollbar-track-border-radius: 10px;
 }
 
 @media (prefers-color-scheme: dark) {
