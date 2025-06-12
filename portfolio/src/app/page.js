@@ -411,26 +411,120 @@ export default function Home() {
           </div>
         </div>
       </div>
-        <div id="skills" className={styles.skills}>
-          <h2>Skills</h2>
-          <ul>
-            <li>HTML</li>
-            <li>CSS</li>
-            <li>JavaScript</li>
-            <li>React</li>
-            <li>Next.js</li>
-          </ul>
-        </div>
+      <div id="skills" className={styles.skills}>
+        <h2>Skills &amp; Expertise</h2>
+          <div className={styles.skillCategory}>
+            <h3>Programming Languages</h3>
+            <div className={styles.skillTags}>
+              <span className={styles.skillTag}>Python</span>
+              <span className={styles.skillTag}>Java</span>
+              <span className={styles.skillTag}>C</span>
+              <span className={styles.skillTag}>C++</span>
+              <span className={styles.skillTag}>JavaScript</span>
+              <span className={styles.skillTag}>HTML</span>
+              <span className={styles.skillTag}>CSS</span>
+              <span className={styles.skillTag}>SQL</span>
+              <span className={styles.skillTag}>MongoDB</span>
+              <span className={styles.skillTag}>Perl</span>
+              <span className={styles.skillTag}>Kotlin</span>
+            </div>
+          </div>
+          <div className={styles.skillCategory}>
+            <h3>Frameworks &amp; Libraries</h3>
+            <div className={styles.skillTags}>
+              <span className={styles.skillTag}>ReactJS</span>
+              <span className={styles.skillTag}>AngularJS</span>
+              <span className={styles.skillTag}>NodeJS</span>
+              <span className={styles.skillTag}>Flask</span>
+              <span className={styles.skillTag}>Django</span>
+              <span className={styles.skillTag}>TensorFlow</span>
+              <span className={styles.skillTag}>PyTorch</span>
+              <span className={styles.skillTag}>Scikit-learn</span>
+              <span className={styles.skillTag}>Swing</span>
+              <span className={styles.skillTag}>Pandas</span>
+              <span className={styles.skillTag}>NumPy</span>
+              <span className={styles.skillTag}>Matplotlib</span>
+            </div>
+          </div>
+          <div className={styles.skillCategory}>
+            <h3>Software &amp; Tools</h3>
+            <div className={styles.skillTags}>
+              <span className={styles.skillTag}>Git</span>
+              <span className={styles.skillTag}>Figma</span>
+              <span className={styles.skillTag}>Canva</span>
+              <span className={styles.skillTag}>MATLAB</span>
+              <span className={styles.skillTag}>Linux/Unix</span>
+            </div>
+          </div>
+          <div className={styles.skillCategory}>
+            <h3>Soft Skills</h3>
+            <div className={styles.skillTags}>
+              <span className={styles.skillTag}>Problem-Solving</span>
+              <span className={styles.skillTag}>Teamwork</span>
+              <span className={styles.skillTag}>Adaptability</span>
+              <span className={styles.skillTag}>Continuous Learning</span>
+            </div>
+          </div>
+      </div>
         <div id="contact" className={styles.contact}>
-          <h2>Contact</h2>
-          <p>If you would like to get in touch, please email me at <a href="mailto:"></a></p>
-          <p>Follow me on social media:</p>
-          <ul className={styles.socialLinks}>
-            <li><a href="https://github.com" target="_blank" rel="noopener noreferrer">GitHub</a></li>
-            <li><a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
-            <li><a href="https://twitter.com" target="_blank" rel="noopener noreferrer">Twitter</a></li>
-          </ul>
+        <div className={styles.contactTexts}>
+        <h2 className={styles.contactTitle}>Get In Touch</h2>
+        <div className={styles.contactGrid}>
+          <div className={styles.contactInfo}>
+            <h3 className={styles.contactSubtitle}>Contact Information</h3>
+            <div className={styles.contactBlock}>
+              <span className={styles.contactLabel}>Email:</span>
+              <div className={styles.contactDetails}>
+                <a href="mailto:avdhakshin1354@gmail.com" className={styles.contactLink}>avdhakshin1354@gmail.com</a>
+                <a href="mailto:126015021@sastra.ac.in" className={styles.contactLink}>126015021@sastra.ac.in</a>
+              </div>
+            </div>
+            <div className={styles.contactBlock}>
+              <span className={styles.contactLabel}>Phone:</span>
+              <span className={styles.contactDetails}>+91 9629243200</span>
+            </div>
+            <div className={styles.contactBlock}>
+              <span className={styles.contactLabel}>Address:</span>
+              <span className={styles.contactDetails}>
+                6/608/6-C Bharathidasan Street,<br />
+                Lakshmi Nagar, Virudhunagar
+              </span>
+            </div>
+            <div className={styles.contactBlock}>
+              <span className={styles.contactLabel}>LinkedIn:</span>
+              <a
+                href="https://linkedin.com/in/dhaks13"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.contactLink}
+              >
+                linkedin.com/in/dhaks13
+              </a>
+            </div>
+          </div>
+          </div>
+          <form className={styles.contactForm} autoComplete="off">
+            <h3 className={styles.contactSubtitle}>Send a Message</h3>
+            <div className={styles.formGroup}>
+              <label htmlFor="name" className={styles.formLabel}>Name</label>
+              <input type="text" id="name" name="name" className={styles.formInput} placeholder="Your Name" required />
+            </div>
+            <div className={styles.formGroup}>
+              <label htmlFor="email" className={styles.formLabel}>Email</label>
+              <input type="email" id="email" name="email" className={styles.formInput} placeholder="Your Email" required />
+            </div>
+            <div className={styles.formGroup}>
+              <label htmlFor="subject" className={styles.formLabel}>Subject</label>
+              <input type="text" id="subject" name="subject" className={styles.formInput} placeholder="Subject" required />
+            </div>
+            <div className={styles.formGroup}>
+              <label htmlFor="message" className={styles.formLabel}>Message</label>
+              <textarea id="message" name="message" className={styles.formTextarea} placeholder="Your Message" rows={5} required />
+            </div>
+            <button type="submit" className={styles.sendButton}>Send Message</button>
+          </form>
         </div>
+      </div>
       <footer className={styles.footer}>
         <p>&copy; {new Date().getFullYear()} Dhakshin A V. All rights reserved.</p>
       </footer>

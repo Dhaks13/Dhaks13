@@ -454,7 +454,6 @@ transform: translateY(-100%);
   gap: 16px;
   padding: 16px;
   width: 100vw;
-  min-height: 100vh;
   background: var(--background);
   color: var(--text-1);
   font-family: var(--font-geist-sans);
@@ -468,27 +467,48 @@ transform: translateY(-100%);
     text-shadow: 2px 2px 4px var(--text-2);
   }
 
-  .skillList {
+  .skillCategory {
+    display: flex;
+    flex-direction: column;
+    align-items:first baseline;
+    justify-content: center;
+    gap: 16px;
+    width: 100%;
+    max-width: 80vw;
+    color: var(--text-3);
+    font-size: 24px;
+    font-weight: 500;
+    text-shadow: 1px 1px 2px var(--text-2);
+
+    .skillTags {
     display: flex;
     flex-wrap: wrap;
     gap: 16px;
-    justify-content: center;
+    justify-content:first baseline;
+    margin-bottom: 25px;
 
-    .skillItem {
-      background-color: rgba(255,255,255,0.9);
-      border-radius: 8px;
-      padding: 12px;
-      box-shadow: rgba(0,0,0,0.1) inset -1px -1px -1px rgba(0,0,0,0.05);
+    .skillTag {
+      border-radius: 12px;
+      padding: 8px;
+      box-shadow: rgba(0,0,0,0.5) inset 1px 1px 1px rgba(0,0,0,0.25);
       font-size: 20px;
-      color: var(--text-3);
+      text-shadow: 1px 1px 2px var(--text-2);
       transition: transform .3s ease-in-out;
-
+      border: 2px solid var(--text-4);
       &:hover {
         transform: translateY(-5px);
         box-shadow: rgba(0,0,0,0.2) inset -1px -1px -1px rgba(0,0,0,0.05);
       }
     }
+
+    .skillTag:hover {
+      background-color: var(--button-primary);
+      color: var(--text-1);
+      border: 2px solid var(--button-primary-hover);
+    }
   }
+  }
+  
 }
 
 .contact {
