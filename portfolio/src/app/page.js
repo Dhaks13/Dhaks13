@@ -1,13 +1,12 @@
 'use client'
-
-import { useEffect } from 'react';
+import React, { useState , useRef, useEffect } from 'react';
 import "./globals.css";
 import Image from "next/image";
 import Me from "./logo.jpg";
 import styles from "./page.module.css";
 import heroImage from "./hero-image.jpg";
-import Script from "next/script";
 import {ReactTyped} from "react-typed"
+import emailjs from 'emailjs-com';
 
 export default function Home() {
   useEffect(() => {
@@ -64,6 +63,129 @@ export default function Home() {
   };
 }, []);
 
+const projects = [
+  {
+    title: 'Law ChatBot',
+    description:
+      'An AI-powered legal assistant chatbot designed to answer queries related to Indian family and property law using NLP, intent classification, and context-aware dialogue, built with Django and Angular.',
+    tags: ['AI/ML', 'Full Stack Web Development'],
+    tech: ['#Python', '#Django', '#Angular', '#Chatbot', '#LLM', '#RAG'],
+    url: 'https://github.com/Dhaks13/sastra-law-bot/',
+  },
+  {
+    title: 'SALVO Website',
+    description:
+'A responsive website developed for SALVO, an AI club initiative, designed to showcase the club’s mission, activities, and events. Built with modern UI principles, smooth animations, accessibility support, and a mobile-first approach.',    tags: ['Frontend Development','Full Stack Web Development'],
+    tech: ['#HTML', '#CSS', '#JavaScript', '#ResponsiveDesign'],
+    url: 'https://github.com/Dhaks13/SALVO-Website',
+  },
+  {
+    title: 'STL File Slicing',
+    description:
+      'A Python CLI tool for slicing STL files into 3D printable layers with adjustable slice height and orientation, tailored for additive manufacturing workflows.',
+    tags: ['3D Printing', 'Tooling'],
+    tech: ['#Python', '#STL', '#Slicing', '#3DPrinting'],
+    url: 'https://github.com/Dhaks13/STL_File_Slicing',
+  },
+  {
+    title: 'IDS for UAV',
+    description:
+      'An ML-based Intrusion Detection System for UAVs using explainable AI and WSN data to detect GPS spoofing and DoS attacks with real-time classification.',
+    tags: ['AI/ML', 'Cybersecurity'],
+    tech: ['#Python', '#MachineLearning', '#XAI', '#WSN'],
+    url: 'https://github.com/Dhaks13/IDS_for_UAV',
+  },
+  {
+    title: 'BayMax',
+    description:
+      'A health-focused chatbot developed and Django, capable of handling medical queries with contextual understanding and explainable AI.',
+    tags: ['AI/ML', 'Full Stack Web Development'],
+    tech: ['#Python', '#Django', '#LLM', '#Chatbot'],
+    url: 'https://github.com/UnAuthDevX/BayMax-',
+  },
+  {
+    title: 'Plant Disease Classification',
+    description:
+      'A deep learning model using transfer learning and image augmentation to accurately classify plant leaf diseases, built with TensorFlow.',
+    tags: ['AI/ML', 'Computer Vision'],
+    tech: ['#Python', '#TensorFlow', '#DeepLearning', '#ImageClassification'],
+    url: 'https://github.com/UnAuthDevX/Plant-Disease-Classification',
+  },
+  {
+    title: 'Tic-Tac-Toe Web App',
+    description:
+      'A two-player browser game developed with JavaScript, featuring real-time game logic, UI interaction, and state resets.',
+    tags: ['Frontend Development', 'Games'],
+    tech: ['#JavaScript', '#HTML', '#CSS', '#GameLogic'],
+    url: 'https://github.com/Dhaks13/PRODIGY_WD_03',
+  },
+  {
+    title: 'Weather App',
+    description:
+      'A weather forecast application that consumes a public weather API to show current conditions with responsive UI.',
+    tags: ['Frontend Development'],
+    tech: ['#JavaScript', '#API', '#HTML', '#CSS', '#ResponsiveDesign'],
+    url: 'https://github.com/Dhaks13/PRODIGY_WD_05',
+  },
+  {
+    title: 'JavaScript RPG',
+    description:
+      'A browser-based RPG using HTML5 Canvas and JavaScript, with combat, tile-based maps, and animated player movement following game development tutorials.',
+    tags: ['Frontend Development', 'Games'],
+    tech: ['#JavaScript', '#Canvas', '#HTML', '#GameDev'],
+    url: 'https://github.com/Dhaks13/JavaScript-RPG-BeauCarnes-freeCodeCamp.org',
+  },
+];
+
+const tags = ['All', 'Full Stack Web Development', 'AI/ML','Frontend Development'];
+const [activeTag, setActiveTag] = useState('All');
+
+  const handleTagClick = (tag) => {
+    setActiveTag(tag);
+  };
+
+  const filteredProjects =
+    activeTag === 'All'
+      ? projects
+      : projects.filter((project) => project.tags.includes(activeTag));
+
+  
+
+  const form = useRef();
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+    const serviceID = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
+    const templateID = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
+    const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
+    emailjs.sendForm(
+      serviceID,
+      templateID,
+      form.current,
+      publicKey
+    ).then(
+      (result) => {
+        console.log('Success:', result.text);
+        alert('Message sent!');
+        form.current.reset();
+      },
+      (error) => {
+        console.error('Error:', error.text);
+        alert('Failed to send message.');
+      }
+    );
+  };
+
+  const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkScreen = () => setIsMobile(window.innerWidth <= 800);
+    checkScreen();
+    window.addEventListener('resize', checkScreen);
+    return () => window.removeEventListener('resize', checkScreen);
+  }, []);
+
   return (
     <div className={styles.page}>
       <div className={`${styles.navbar} ${styles.hidden}` }>
@@ -77,13 +199,47 @@ export default function Home() {
           /> */}
           <span className={styles.title}>Portfolio</span>
         </div>
+        {isMobile && !isMobileMenuOpen && (
+        <i className={`fas fa-bars ${styles.menuIcon}`} onClick={() => 
+          {
+            setMobileMenuOpen(true)
+            document.querySelector(`.${styles.navbar} nav`)?.classList.add(styles.transformed);
+
+          }
+        }></i>
+      
+      )}
+      {isMobile && isMobileMenuOpen && (
+        <i
+          className={`fas fa-times ${styles.closeIcon}`}
+          onClick={() => {
+            setMobileMenuOpen(false);
+            document.querySelector(`.${styles.navbar} nav`)?.classList.remove(styles.transformed);
+          }}
+        ></i>
+      )}
         <nav className={styles.navLinks}>
 
-          <a href="#home" className={styles.active}>Home</a>
-          <a href="#about">About</a>
-          <a href="#projects">Projects</a>
-          <a href="#skills">Skills</a>
-          <a href="#contact">Contact</a>
+          <a href="#home" onClick={() => {
+            setMobileMenuOpen(false)
+            document.querySelector(`.${styles.navbar} nav`)?.classList.remove(styles.transformed);
+          }} className={styles.active}>Home</a>
+          <a href="#about" onClick={() => {
+            setMobileMenuOpen(false)
+            document.querySelector(`.${styles.navbar} nav`)?.classList.remove(styles.transformed);
+          }}>About</a>
+          <a href="#projects" onClick={() => {
+            setMobileMenuOpen(false)
+            document.querySelector(`.${styles.navbar} nav`)?.classList.remove(styles.transformed);
+          }}>Projects</a>
+          <a href="#skills" onClick={() => {
+            setMobileMenuOpen(false)
+            document.querySelector(`.${styles.navbar} nav`)?.classList.remove(styles.transformed);
+          }}>Skills</a>
+          <a href="#contact" onClick={() => {
+            setMobileMenuOpen(false)
+            document.querySelector(`.${styles.navbar} nav`)?.classList.remove(styles.transformed);
+          }}>Contact</a>
         </nav>
       </div>
       <div id="home" className={styles.home}>
@@ -124,7 +280,7 @@ export default function Home() {
             <a href="https://github.com/Dhaks13" target="_blank" rel="noopener noreferrer">
               <i className="fab fa-github"></i>
             </a>
-            <a href='#contact' target="_blank" rel="noopener noreferrer">
+            <a href='#form' target="_blank" rel="noopener noreferrer">
               <i className="fas fa-envelope"></i>
             </a>
           </div>
@@ -184,7 +340,7 @@ export default function Home() {
           <a href="https://github.com/Dhaks13" target="_blank" rel="noopener noreferrer">
             <i className="fab fa-github"></i> GitHub
           </a>
-          <a href='#contact' target="_blank" rel="noopener noreferrer">
+          <a href='#form' target="_blank" rel="noopener noreferrer">
             <i className="fas fa-envelope"></i> Email
           </a>
         </div>
@@ -193,26 +349,30 @@ export default function Home() {
       <div id="projects" className={styles.projects}>
         <h2>Projects</h2>
         <div className={styles.projectTags}>
-          <span className={`${styles.tag} ${styles.active}`}>All</span>
-          <span className={styles.tag}>Full Stack Web Development</span>
-          <span className={styles.tag}>AI/ML</span>
-        </div>
+        {tags.map((tag) => (
+          <span
+            key={tag}
+            className={`${styles.tag} ${
+              activeTag === tag ? styles.active : ''
+            }`}
+            onClick={() => handleTagClick(tag)}
+          >
+            {tag}
+          </span>
+        ))}
+      </div>
         <div className={styles.projectList}>
-          {/* Sastra Law Bot */}
-          <div className={styles.projectItem}>
-            <h3>Sastra Law Bot</h3>
-            <p>
-              An AI-driven chatbot built with Python and NLP techniques to assist 
-              students in navigating campus regulations and legal queries, featuring  
-              intent classification and context-aware responses.
-            </p>
+          {filteredProjects.map((project) => (
+          <div key={project.title} className={styles.projectItem}>
+            <h3>{project.title}</h3>
+            <p>{project.description}</p>
             <div className={styles.projectTags}>
-              <span>#Python</span> <span>#Chatbot</span> <span>#LLM</span>
-              <span>#RAG</span> <span>#Django</span> <span>#Angular</span>
-
+              {project.tech.map((t) => (
+                <span key={t}>{t}</span>
+              ))}
             </div>
             <a
-              href="https://github.com/Dhaks13/sastra-law-bot/"
+              href={project.url}
               className={styles.projectLink}
               target="_blank"
               rel="noopener noreferrer"
@@ -220,195 +380,8 @@ export default function Home() {
               <i className="fab fa-github"></i> View on GitHub
             </a>
           </div>
-
-          {/* SALVO Website */}
-          <div className={styles.projectItem}>
-            <h3>SALVO Website</h3>
-            <p>
-              A responsive, multi-page website built to showcase the SALVO initiative, 
-              featuring a clean UI, smooth scroll animations, and mobile-first design 
-              principles to engage visitors and communicate project goals.
-            </p>
-            <div className={styles.projectTags}>
-              <span>#HTML</span> <span>#CSS</span> <span>#JavaScript</span> <span>#ResponsiveDesign</span>
-            </div>
-            <a
-              href="https://github.com/Dhaks13/SALVO-Website"
-              className={styles.projectLink}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <i className="fab fa-github"></i> View on GitHub
-            </a>
-          </div>
-
-          {/* STL File Slicing */}
-          <div className={styles.projectItem}>
-            <h3>STL File Slicing</h3>
-            <p>
-              A Python CLI tool that parses and slices 3D STL models into printable 
-              segments, allowing customization of layer height and slice orientation 
-              for optimized 3D printing workflows.
-            </p>
-            <div className={styles.projectTags}>
-              <span>#Python</span> <span>#3DPrinting</span> <span>#STL</span>
-            </div>
-            <a
-              href="https://github.com/Dhaks13/STL_File_Slicing"
-              className={styles.projectLink}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <i className="fab fa-github"></i> View on GitHub
-            </a>
-          </div>
-
-          {/* IDS for UAV */}
-          <div className={styles.projectItem}>
-            <h3>IDS for UAV</h3>
-            <p>
-              An intrusion detection system for drones combining wireless sensor  
-              networks and machine learning classifiers to detect GPS spoofing and  
-              denial-of-service attacks in real time.
-            </p>
-            <div className={styles.projectTags}>
-              <span>#Python</span> <span>#MachineLearning</span> <span>#XAI</span>
-            </div>
-            <a
-              href="https://github.com/Dhaks13/IDS_for_UAV"
-              className={styles.projectLink}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <i className="fab fa-github"></i> View on GitHub
-            </a>
-          </div>
-
-          {/* BayMax */}
-          <div className={styles.projectItem}>
-            <h3>BayMax</h3>
-            <p>
-              A medical assistance chatbot developed during a hackathon using Django  
-              and Rasa, capable of answering health-related queries and providing  
-              symptom-based suggestions with explainable AI components.
-            </p>
-            <div className={styles.projectTags}>
-              <span>#Python</span> <span>#Django</span> <span>#Chatbot</span> <span>#LLM</span>
-            </div>
-            <a
-              href="https://github.com/UnAuthDevX/BayMax-"
-              className={styles.projectLink}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <i className="fab fa-github"></i> View on GitHub
-            </a>
-          </div>
-
-          {/* Plant Disease Classification */}
-          <div className={styles.projectItem}>
-            <h3>Plant Disease Classification</h3>
-            <p>
-              A deep learning pipeline using TensorFlow to classify plant leaf images  
-              into healthy or various disease categories, featuring data augmentation  
-              and transfer learning for high accuracy.
-            </p>
-            <div className={styles.projectTags}>
-              <span>#Python</span> <span>#TensorFlow</span> <span>#DeepLearning</span>
-            </div>
-            <a
-              href="https://github.com/UnAuthDevX/Plant-Disease-Classification"
-              className={styles.projectLink}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <i className="fab fa-github"></i> View on GitHub
-            </a>
-          </div>
-
-          {/* Tic-Tac-Toe Web App */}
-          <div className={styles.projectItem}>
-            <h3>Tic-Tac-Toe Web App</h3>
-            <p>
-              A browser-based Tic-Tac-Toe game built with vanilla JavaScript, HTML,  
-              and CSS, featuring two-player mode, win/draw detection, and a reset  
-              functionality.
-            </p>
-            <div className={styles.projectTags}>
-              <span>#JavaScript</span> <span>#HTML</span> <span>#CSS</span>
-            </div>
-            <a
-              href="https://github.com/Dhaks13/PRODIGY_WD_03(Tic-Tac-Toe Web Application)"
-              className={styles.projectLink}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <i className="fab fa-github"></i> View on GitHub
-            </a>
-          </div>
-
-          {/* Weather App */}
-          <div className={styles.projectItem}>
-            <h3>Weather App</h3>
-            <p>
-              A dynamic web application that fetches real-time weather data from an  
-              external API, displays current conditions and 5-day forecasts, and  
-              allows city-based searches.
-            </p>
-            <div className={styles.projectTags}>
-              <span>#JavaScript</span> <span>#API</span> <span>#ResponsiveDesign</span>
-            </div>
-            <a
-              href="https://github.com/Dhaks13/PRODIGY_WD_05(Weather App)"
-              className={styles.projectLink}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <i className="fab fa-github"></i> View on GitHub
-            </a>
-          </div>
-
-          {/* Frontend Movie App */}
-          <div className={styles.projectItem}>
-            <h3>Frontend Movie App</h3>
-            <p>
-              A React-based single-page application that integrates with the TMDB API  
-              to browse, search, and filter movies, complete with dynamic routing and  
-              responsive layout.
-            </p>
-            <div className={styles.projectTags}>
-              <span>#React</span> <span>#JavaScript</span> <span>#API</span>
-            </div>
-            <a
-              href="https://github.com/Dhaks13/Frontend-Movie-App-freeCodeCamp.org"
-              className={styles.projectLink}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <i className="fab fa-github"></i> View on GitHub
-            </a>
-          </div>
-
-          {/* JavaScript RPG */}
-          <div className={styles.projectItem}>
-            <h3>JavaScript RPG</h3>
-            <p>
-              A tutorial-driven role-playing game built with plain JavaScript and  
-              HTML5 Canvas, featuring character movement, combat mechanics, and  
-              map exploration inspired by classic RPGs.
-            </p>
-            <div className={styles.projectTags}>
-              <span>#JavaScript</span> <span>#GameDev</span> <span>#Canvas</span>
-            </div>
-            <a
-              href="https://github.com/Dhaks13/JavaScript-RPG-BeauCarnes-freeCodeCamp.org"
-              className={styles.projectLink}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <i className="fab fa-github"></i> View on GitHub
-            </a>
-          </div>
+        ))}
+        
         </div>
       </div>
       <div id="skills" className={styles.skills}>
@@ -453,7 +426,7 @@ export default function Home() {
               <span className={styles.skillTag}>Figma</span>
               <span className={styles.skillTag}>Canva</span>
               <span className={styles.skillTag}>MATLAB</span>
-              <span className={styles.skillTag}>Linux/Unix</span>
+              <span className={styles.skillTag}>Linux</span>
             </div>
           </div>
           <div className={styles.skillCategory}>
@@ -466,32 +439,50 @@ export default function Home() {
             </div>
           </div>
       </div>
-        <div id="contact" className={styles.contact}>
-        <div className={styles.contactTexts}>
+      <div id="contact" className={styles.contact}>
         <h2 className={styles.contactTitle}>Get In Touch</h2>
         <div className={styles.contactGrid}>
           <div className={styles.contactInfo}>
             <h3 className={styles.contactSubtitle}>Contact Information</h3>
             <div className={styles.contactBlock}>
-              <span className={styles.contactLabel}>Email:</span>
+              <div className={styles.contactIcon}>
+                <i className={`fas fa-envelope`}></i>
+              </div>
               <div className={styles.contactDetails}>
-                <a href="mailto:avdhakshin1354@gmail.com" className={styles.contactLink}>avdhakshin1354@gmail.com</a>
-                <a href="mailto:126015021@sastra.ac.in" className={styles.contactLink}>126015021@sastra.ac.in</a>
+                <span className={styles.contactLabel}>Email</span>
+                <div className={styles.contactDetail}>
+                  <a href="mailto:avdhakshin1354@gmail.com" target="_blank" rel="noopener noreferrer" className={styles.contactLink}>avdhakshin1354@gmail.com</a>
+                  <a href="mailto:126015021@sastra.ac.in" target="_blank" rel="noopener noreferrer" className={styles.contactLink}>126015021@sastra.ac.in</a>
+                </div>
               </div>
             </div>
             <div className={styles.contactBlock}>
-              <span className={styles.contactLabel}>Phone:</span>
-              <span className={styles.contactDetails}>+91 9629243200</span>
+              <div className={styles.contactIcon}>
+              <i className='fas fa-mobile'></i>
+              </div>
+              <div className={styles.contactDetails}>
+                <span className={styles.contactLabel}>Phone</span>
+                <span className={styles.contactDetail}>+91 9629243200</span>
+              </div>
             </div>
             <div className={styles.contactBlock}>
-              <span className={styles.contactLabel}>Address:</span>
-              <span className={styles.contactDetails}>
+              <div className={styles.contactIcon}>
+                <i className={`fas fa-map-marker-alt`}></i>
+              </div>
+              <div className={styles.contactDetails}>
+              <span className={styles.contactLabel}>Address</span>
+              <span className={styles.contactDetail}>
                 6/608/6-C Bharathidasan Street,<br />
                 Lakshmi Nagar, Virudhunagar
               </span>
             </div>
+            </div>
             <div className={styles.contactBlock}>
-              <span className={styles.contactLabel}>LinkedIn:</span>
+              <div className={styles.contactIcon}>
+              <i className={`fab fa-linkedin`}></i>
+              </div>
+              <div className={styles.contactDetails}>
+              <span className={styles.contactLabel}>LinkedIn</span>
               <a
                 href="https://linkedin.com/in/dhaks13"
                 target="_blank"
@@ -500,11 +491,12 @@ export default function Home() {
               >
                 linkedin.com/in/dhaks13
               </a>
+              </div>
             </div>
-          </div>
-          </div>
-          <form className={styles.contactForm} autoComplete="off">
+          </div>  
+          <div className={styles.contactInfo}>
             <h3 className={styles.contactSubtitle}>Send a Message</h3>
+          <form id='form' ref={form} onSubmit={sendEmail} className={styles.contactForm} autoComplete="off">
             <div className={styles.formGroup}>
               <label htmlFor="name" className={styles.formLabel}>Name</label>
               <input type="text" id="name" name="name" className={styles.formInput} placeholder="Your Name" required />
@@ -523,6 +515,7 @@ export default function Home() {
             </div>
             <button type="submit" className={styles.sendButton}>Send Message</button>
           </form>
+          </div>
         </div>
       </div>
       <footer className={styles.footer}>
