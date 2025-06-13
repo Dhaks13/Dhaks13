@@ -367,12 +367,13 @@ transform: translateY(-100%);
         font-size: 24px;
         font-weight: bold;
         color: var(--text-3);
+        text-shadow: 1px 1px 2px var(--text-2);
         margin-bottom: 8px;
       }
 
       p {
         font-size: 18px;
-        color: var(--text-2);
+        color: var(--text-3);
         margin-bottom: 8px;
         text-shadow: .1px .1px .5px var(--text-2);
       }
@@ -533,58 +534,149 @@ transform: translateY(-100%);
     text-shadow: 2px 2px 4px var(--text-2);
   }
 
-  p {
-    font-size: 24px;
-    color: var(--text-3);
-    line-height: 1.5;
-    max-width: 600px;
+  .contactGrid {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
     margin-bottom: 16px;
+    gap: 32px;
+    width: 80%;
+    padding: 16px;
+  }
+}
+
+.contactInfo{
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 4px;
+  width: 40%;
+
+  .contactSubtitle{
+    font-size: 32px;
+    font-weight: 500;
+    color: var(--text-3);
+    margin-bottom: 8px;
     text-shadow: 1px 1px 2px var(--text-2);
   }
 
-  form {
+  .contactBlock{
+    display: flex;
+    flex-direction: row;
+    padding: 8px;
+    color: var(--text-3);
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+    align-items: center;
+    justify-content: start;
+    gap: 16px;
+    margin: 4px;
+
+    .contactIcon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      padding: 16px;
+      border: 2px solid var(--text-4);
+      border-radius: 50%;
+      color: var(--text-4);
+      transition: color 0.3s ease-in-out;
+    }
+    .contactIcon:hover {
+      color: var(--text-3);
+      background-color: var(--text-4);
+      animation: shake 0.5s infinite;
+    }
+    .contactLabel {
+      font-size: 20px;
+      font-weight: 400;
+      color: var(--text-3);
+      text-shadow: 1px 1px 2px var(--text-2);
+      display: flex;
+      align-self: start;
+      justify-content: start;
+
+    }
+    .contactDetail, a {
+      display: flex;
+      align-self: start;
+      justify-content: start;
+      flex-direction: column;
+      font-size: 16px;
+      color: var(--text-3);
+      text-decoration: none;
+      transition: color 0.3s ease-in-out;
+      padding: 8px;
+    }
+  }
+
+  .contactForm{
     display: flex;
     flex-direction: column;
-    gap: 16px;
-    max-width: 600px;
+    padding: 10px;
     width: 100%;
+    min-width: 300px;
+    background: var(--background);
+    border-radius: 8px;
+    box-shadow: rgba(0,0,0,0.1) 0px 4px 6px -1px, rgba(0,0,0,0.06) 0px 2px 4px -1px;
+    gap: 10px;
+    border: 2px solid var(--text-4);
+    transition: border-color 0.3s ease-in-out;
+    &:hover {
+      border-color: var(--button-primary-hover);
+    }
 
-    input, textarea {
-      padding: 12px;
-      border-radius: 8px;
-      border: none;
-      background-color: rgba(255,255,255,0.9);
-      box-shadow: rgba(0,0,0,0.1) inset -1px -1px -1px rgba(0,0,0,0.05);
-      font-size: 18px;
-      color: var(--text-3);
-      transition: box-shadow .3s ease-in-out;
+    .formGroup {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      padding: 8px;
+      gap: 8px;
+      align-items: start;
+      justify-content: start;
 
-      &:focus {
-        box-shadow: rgba(0,0,0,0.2) inset -1px -1px -1px rgba(0,0,0,0.05);
-        outline:none; 
+      .formLabel {
+        font-size: 16px;
+        color: var(--text-3);
+        font-weight: 500;
+        padding: 8px;
+      }
+
+      input, textarea {
+        width: 100%;
+        padding: 12px;
+        border-radius: 8px;
+        border: 2px solid var(--text-4);
+        background: var(--background-2);
+        color: var(--text-3);
+        font-size: 16px;
+        transition: border-color 0.3s ease-in-out;
+
+        &:focus {
+          border-color: var(--button-primary-hover);
+          outline: none;
+        }
       }
     }
 
-    textarea {
-      resize: vertical;
-      min-height: 150px;
-    }
-
     button {
+      display: inline-block;
+      width: 80%;
+      align-self: center;
+      justify-content: center;
       padding: 12px;
       border-radius: 8px;
-      border:none; 
-      background-color: var(--button-primary);
-      color: var(--text-1);
-      font-size:24px; 
-      font-weight:bold; 
-      cursor:pointer; 
-      transition:.3s ease-in-out;
-
+      border: 2px solid var(--button-border);
+      background: var(--text-4);
+      color: var(--text-3);
+      font-size: 16px;
+      transition: border-color 0.3s ease-in-out;
+      cursor: pointer;
       &:hover {
-        background-color: var(--button
--primary-hover);
-        box-shadow: rgba(0,0,0,0.1) 0px 4px 6px -1px, rgba(0,0,0,0.06) 0px 2px 4px -1px;
+        border-color: var(--button-primary-hover);
+        transform: scale(1.05);
       }
     }
   }
