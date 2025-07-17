@@ -5,7 +5,8 @@
   
 - 🏫 I’m currently pursuing a B.Tech degree in **Information Technology** at **SASTRA UNIVERSITY**
 - 🌱 I’m currently learning **WebDev, AndroidDev, AI/ML**
-- 📫 How to reach me: **https://www.instagram.com/_dhaks_13_/**
+- 📫 How to reach me: **http://linkedin.com/in/dhaks13/**
+- 🔗 Portfolio: **https://dhaks13.vercel.app/**
 </p>
 <h3 align="left">Connect with me:</h3>
 <p align="left">
