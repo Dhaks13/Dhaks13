@@ -22,6 +22,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <head>
         <meta charSet="UTF-8" />
+        <meta name="google-site-verification" content="fIzhfDnJk1fSqYXrCGhg6Y60ZvSk6jO-MXEhh0juZSg" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="theme-color" content="#000000" />
         <link rel="icon" href="/favicon.ico" />
