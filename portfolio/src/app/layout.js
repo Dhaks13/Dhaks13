@@ -25,6 +25,7 @@ export default function RootLayout({ children }) {
         <meta name="google-site-verification" content="fIzhfDnJk1fSqYXrCGhg6Y60ZvSk6jO-MXEhh0juZSg" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="theme-color" content="#000000" />
+        <meta name="google-adsense-account" content="ca-pub-5593528107846753"></meta>
         <link rel="icon" href="/favicon.ico" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com"/>
