@@ -29,6 +29,15 @@ export default function RootLayout({ children }) {
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com"/>
         <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.15.4/css/all.css" />
+        {/* <!-- Google tag (gtag.js) --> */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-98H8WJFSYQ"></script>
+        <script dangerouslySetInnerHTML={{
+          __html: `
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-98H8WJFSYQ');
+        `}} />
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         {children}
