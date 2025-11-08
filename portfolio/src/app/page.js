@@ -442,58 +442,7 @@ const [activeTag, setActiveTag] = useState('All');
       <div id="contact" className={styles.contact}>
         <h2 className={styles.contactTitle}>Get In Touch</h2>
         <div className={styles.contactGrid}>
-          <div className={styles.contactInfo}>
-            <h3 className={styles.contactSubtitle}>Contact Information</h3>
-            <div className={styles.contactBlock}>
-              <div className={styles.contactIcon}>
-                <i className={`fas fa-envelope`}></i>
-              </div>
-              <div className={styles.contactDetails}>
-                <span className={styles.contactLabel}>Email</span>
-                <div className={styles.contactDetail}>
-                  <a href="mailto:avdhakshin1354@gmail.com" target="_blank" rel="noopener noreferrer" className={styles.contactLink}>avdhakshin1354@gmail.com</a>
-                  <a href="mailto:126015021@sastra.ac.in" target="_blank" rel="noopener noreferrer" className={styles.contactLink}>126015021@sastra.ac.in</a>
-                </div>
-              </div>
-            </div>
-            <div className={styles.contactBlock}>
-              <div className={styles.contactIcon}>
-              <i className='fas fa-mobile'></i>
-              </div>
-              <div className={styles.contactDetails}>
-                <span className={styles.contactLabel}>Phone</span>
-                <span className={styles.contactDetail}>+91 9629243200</span>
-              </div>
-            </div>
-            <div className={styles.contactBlock}>
-              <div className={styles.contactIcon}>
-                <i className={`fas fa-map-marker-alt`}></i>
-              </div>
-              <div className={styles.contactDetails}>
-              <span className={styles.contactLabel}>Address</span>
-              <span className={styles.contactDetail}>
-                6/608/6-C Bharathidasan Street,<br />
-                Lakshmi Nagar, Virudhunagar
-              </span>
-            </div>
-            </div>
-            <div className={styles.contactBlock}>
-              <div className={styles.contactIcon}>
-              <i className={`fab fa-linkedin`}></i>
-              </div>
-              <div className={styles.contactDetails}>
-              <span className={styles.contactLabel}>LinkedIn</span>
-              <a
-                href="https://linkedin.com/in/dhaks13"
-                target="_blank"
-                rel="noopener noreferrer"
-                className={styles.contactLink}
-              >
-                linkedin.com/in/dhaks13
-              </a>
-              </div>
-            </div>
-          </div>  
+          
           <div className={styles.contactInfo}>
             <h3 className={styles.contactSubtitle}>Send a Message</h3>
           <form id='form' ref={form} onSubmit={sendEmail} className={styles.contactForm} autoComplete="off">
